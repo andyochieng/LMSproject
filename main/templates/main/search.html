@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Query:{{Query}}
+Courses:{{Courses}}
+{% if courses %}
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="/main/view/{{course.id}}">
+                    {{ course.title }} (ID: {{ course.id }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No courses found.</p>
+{% endif %}
+</body>
+</html>
