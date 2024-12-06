@@ -7,9 +7,10 @@
 <body>
 course:{{course}}
             <li>
-                <a href="/main/view/{{course.id}}">
+                <a href="/view/{{course.id}}">
                     {{ course.title }} (ID: {{ course.id }})
                 </a>
+
             </li>
     <ul>
         {% for content in contents %}
@@ -19,5 +20,21 @@ course:{{course}}
             </li>
         {% endfor %}
     </ul>
+<div>{% with cid=course.id %}
+        {% if is_enrolled %}
+        <p>You are enrolled in this course. Progress: {{ progress }}%</p>
+        <form method="post" action="{% url 'unenroll' cid %}">
+            {% csrf_token %}
+            <button type="submit">Unenroll</button>
+        </form>
+    {% else %}
+        <p>You are not enrolled in this course.</p>
+        <form method="post" action="{% url 'enroll' cid %}">
+            {% csrf_token %}
+            <button type="submit">Enroll</button>
+        </form>
+    {% endif %}
+{% endwith %}
+</div>
 </body>
 </html>

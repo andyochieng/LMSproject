@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Teacher Content{% endblock %}
+
+{% block content %}
+<div class="teacher-content">
+    <h2>Your Course Content</h2>
+    <ul>
+        {% for content in TeacherContent %}
+            <li>{{ content.title }} -
+                {% if content.visibleToAll %}
+                    <a href="{{ content.file.url }}" target="_blank">Download</a>
+                {% else %}
+                    <span>Restricted Access</span>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No content uploaded yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

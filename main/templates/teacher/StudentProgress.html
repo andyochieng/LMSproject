@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Progress{% endblock %}
+
+{% block content %}
+<div class="student-progress">
+    <h2>Student Progress</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Progress (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enrollment in StudentInfo %}
+                <tr>
+                    <td>{{ enrollment.student.full_name }}</td>
+                    <td>{{ enrollment.course.title }}</td>
+                    <td>{{ enrollment.progress }}%</td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="3">No students enrolled in your courses.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
