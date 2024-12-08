@@ -1,0 +1,64 @@
+{% extends 'base.html' %} <!-- Assuming you have a base template -->
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Available Courses</h1>
+    <div class="row g-4">
+        <!-- Course 1 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Adobe Photoshop</h5>
+                    <p class="card-text"><strong>Category:</strong> Art & Design</p>
+                    <p class="card-text"><strong>Teacher:</strong> Jomba</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Biology</h5>
+                    <p class="card-text"><strong>Category:</strong> Science</p>
+                    <p class="card-text"><strong>Teacher:</strong> Odera</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Calculus</h5>
+                    <p class="card-text"><strong>Category:</strong> Mathematics</p>
+                    <p class="card-text"><strong>Teacher:</strong> Bravin</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">C++</h5>
+                    <p class="card-text"><strong>Category:</strong> Programming</p>
+                    <p class="card-text"><strong>Teacher:</strong> Bravin</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
 from django.http import Http404
 from django.contrib.auth import get_user_model
+from django.shortcuts import render
 User=get_user_model()
 # Create your views here.
 def home(request):
@@ -19,6 +20,11 @@ def home(request):
 def dashboard(request):
     return render(request, "main/studentDashboard.html")
 
+def contact(request):
+    return render(request, 'main/contact.html')
+
+def courses(request):
+    return render(request, 'main/courses.html')
 
 
 
