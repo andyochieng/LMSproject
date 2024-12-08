@@ -1,6 +1,7 @@
 from django import forms
 from Teachers.models import Teachers
 from .models import (Student,Course)
+from .models import ContactMessage
 # ,WebSignup)
 
 # class WebSignupForm(forms.ModelForm):
@@ -17,6 +18,11 @@ class StudentLoginForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['email', 'password',]
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email', 'phone', 'message']
 """
 STUDENT FORM IS NEEDED
 LOGIN 

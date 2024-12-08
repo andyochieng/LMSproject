@@ -233,3 +233,22 @@ body {
         flex-direction: column;
     }
 }
+/* Styles for smaller screens */
+@media (max-width: 767px) {
+    .hero-section h1 {
+        font-size: 1.5rem; /* Smaller font size for smaller screens */
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Styles for medium screens */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .navbar {
+        padding: 10px;
+    }
+}

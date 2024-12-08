@@ -108,3 +108,13 @@ class Enrollment(models.Model):
     def __str__(self):
         return f"{self.student} in {self.course} ({self.progress}%)"
 
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    message = models.TextField()
+    sent_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.name} - {self.email}"
+
