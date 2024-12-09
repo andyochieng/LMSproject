@@ -15,15 +15,15 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <div class="logo">
-                    <a href="#"> <h1>LearnScape</h1></a>
+                     <h1 style="animation-duration: revert; color: #04133b">LearnScape</h1>
                 </div>
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="{% url 'courses' %}" class="nav-link">Courses</a></li>
-                    <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"></a></li>
+                    <li class="nav-item"><a href="{% url 'courses' %}" class="btn btn-primary ms-2">Courses</a></li>
+                    <li class="nav-item"><a href="{% url 'contact' %}" class="btn btn-primary ms-2">Contact</a></li>
                 </ul>
                 <a href="{% url 'signup' %}" class="btn btn-primary ms-2">Register</a>
-                <a href="{% url 'login' %}" class="btn btn-secondary ms-2">Log In</a>
+                <a href="{% url 'login' %}" class="btn btn-primary ms-2">Log In</a>
             </div>
         </nav>
         <div class="container hero-content text-center">
