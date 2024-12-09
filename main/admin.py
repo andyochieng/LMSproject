@@ -21,3 +21,10 @@ class CourseAdmin(admin.ModelAdmin):
 #     search_fields = ('username','group')          # Searchable fields
 
 #admin.site.register(Student, StudentAdmin)
+""""
+USERS
+CONTACT MESSAGES
+
+
+
+"""

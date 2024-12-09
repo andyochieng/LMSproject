@@ -78,11 +78,13 @@ class StudentsVIEW():
 def profile(request):
     try:
         print(get_user_model().objects.all())
+        print(Course.objects.all())
         student=request.user
         context = {
             'full_name': student.full_name,
             'email': student.email,
-            'courses': student.courses.all(),
+            'courses_yours': student.courses.all(),
+            "courses_available":Course.objects.all()
         }
         return render(request, 'accounts/profile.html', context)
     except Student.DoesNotExist:

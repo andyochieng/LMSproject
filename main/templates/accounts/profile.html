@@ -1,26 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-<h2>Welcome, {{ full_name }}</h2>
-<p>Email: {{ email }}</p>
-<h3>Your Courses:</h3>
-<ul>
-    {% for course in courses %}
-            <li>
-                <a href="/view/{{course.id}}">
-                    {{ course.title }} (ID: {{ course.id }})
-                </a>
-            </li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dashboard</a>
+        </div>
+    </nav>
 
-{#        <li>{{ course.name }}</li>#}
-    {% empty %}
-        <li>You are not enrolled in any courses yet.</li>
-    {% endfor %}
-</ul>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">Welcome, {{ full_name }}</h2>
+                <p class="lead">Email: {{ email }}</p>
+            </div>
+        </div>
 
+        <div class="row my-4">
+            <div class="col-lg-8 mx-auto">
+                <h3>Your Courses:</h3>
+                <ul class="list-group">
+                    {% for course in courses_yours %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="/view/{{ course.id }}" class="text-decoration-none text-primary">
+                            {{ course.title }} (ID: {{ course.id }})
+                        </a>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item text-muted">You are not enrolled in any courses yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Courses Section -->
+        <div class="row my-5">
+            <h3 class="text-center mb-4">Available Courses</h3>
+            {% if courses_available %}
+            <div class="row g-4">
+                {% for course in courses_available %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.title }}</h5>
+                            <p class="card-text">
+                                <span class="badge bg-info">Course ID: {{ course.id }}</span>
+                            </p>
+                            <a href="/view/{{ course.id }}" class="btn btn-primary w-100">View Course</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-warning text-center mt-4" role="alert">
+                No courses found.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
