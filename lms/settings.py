@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os.path
 from pathlib import Path
+
+from django.contrib import staticfiles
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4bwlon&e(ttnoy7hk&+#cq49x0kr#=@z+7@$k373b7r!kj0jb)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lms.onrender.com']
 
 
 # Application definition
@@ -121,6 +124,7 @@ AUTH_USER_MODEL="main.Student"
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # This is where Django will look for static files in development
 STATICFILES_DIRS = [
@@ -133,7 +137,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+ALLOWED_HOSTS=["eager-tarpon-fast.ngrok-free.app","127.0.0.1"]
+# CSRF_
+CSRF_TRUSTED_ORIGINS = ["https://eager-tarpon-fast.ngrok-free.app","http://127.0.0.1:8000"]
 # Default user model and login redirect
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
